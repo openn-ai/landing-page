@@ -34,4 +34,4 @@ jobs:
 
     - name: Interact with object storage
       run: |
-        s3cmd cp hello.py s3://awesome.blog/
+        s3cmd put hello.py s3://openn-ai/lambda/
