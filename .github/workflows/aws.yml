@@ -26,3 +26,13 @@ jobs:
       with:
         role-to-assume: arn:aws:iam::854955106828:role/oidc-role
         aws-region: ${{ env.AWS_REGION }}
+
+    - name: Set up S3cmd cli tool
+      uses: s3-actions/s3cmd@v1.9.0
+      with:
+        provider: aws # default is linode
+
+    - name: Interact with object storage
+      run: |
+        s3cmd sync --recursive --acl-public dist s3://awesome.blog/
+        s3cmd put dist/style.css --mime-type 'text/css' --acl-public s3://awesome.blog/style.css
