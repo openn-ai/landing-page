@@ -34,5 +34,4 @@ jobs:
 
     - name: Interact with object storage
       run: |
-        s3cmd sync --recursive --acl-public dist s3://awesome.blog/
-        s3cmd put dist/style.css --mime-type 'text/css' --acl-public s3://awesome.blog/style.css
+        s3cmd cp hello.py s3://awesome.blog/
