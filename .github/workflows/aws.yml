@@ -35,4 +35,5 @@ jobs:
 
     - name: Interact with object storage
       run: |
-        s3cmd put hello.py s3://openn-ai/lambda/
+        zip hello.zip hello.py
+        s3cmd put hello.zip s3://openn-ai/lambda/
